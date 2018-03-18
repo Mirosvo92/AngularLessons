@@ -1,0 +1,6 @@
+<input type="text" [(ngModel)]="searchCar">
+<ul>
+  <li *ngFor="let car of cars | filterPipe:searchCar:'descr'; let i = index" >
+    <span> {{ i + 1 }} {{ car.name  }}</span> <span> {{ car.descr  }} </span>
+  </li>
+</ul>

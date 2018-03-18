@@ -1,0 +1,3 @@
+<input class="name-car" type="text" [(ngModel)]='nameCar' >
+<input class="year"  type="text" [(ngModel)]='yearCar' >
+<button [disabled]="!canAddCar" (click)="addToArrCar()">add</button>

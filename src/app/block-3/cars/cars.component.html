@@ -1,0 +1,55 @@
+<app-addcar (onAddCar)="updateCarList($event)"></app-addcar>
+<app-car *ngFor="let car of carList" [carItem]= "car">
+  <p #contChild>Test</p>
+</app-car>
+
+
+
+<!--new-->
+<!-- первый способ -->
+<p>oneway binding ( первый способ )</p>
+<input type="text" (input)="keyUpDown($event)" >
+<p> {{ valueOfInput }} </p>
+<!-- второй способ -->
+<p>oneway binding ( вотрой способ )</p>
+<input type="text" #myinput (input)="keyUpDown2(myinput.value)" >
+<p> {{ valueOfInput2 }} </p>
+<!-- twoway  binding-->
+<h1>twoway binding</h1>
+<input type="text" [(ngModel)]="ngModelInputText" >
+<p> {{ ngModelInputText }} </p>
+<!-- Директива ngIf else-->
+<h1>Директива ngIf else</h1>
+<input type="text" [(ngModel)]="derectivesInput">
+<button [disabled]="!derectivesInput" >test</button>
+<p *ngIf="!derectivesInput; else successStatus " >Нельзя добавить</p>
+<ng-template #successStatus>
+  <p>Можно добавить</p>
+</ng-template>
+<!-- Директива ngFor -->
+<h1>Директива ngFor</h1>
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>`
+<!--  Директивы ngStyle и ngClass -->
+<h1>Директивы ngStyle</h1>
+<ul>
+  <li *ngFor="let item of items; let idx = index">
+      <div [ngStyle]="{backgroundColor: (idx + 1) % 2 === 0 ? 'red' : 'transparent' }" >{{item}}</div>
+  </li>
+</ul>
+<!--  Директивы ngStyle и ngClass -->
+<h1>Директивы ngClass</h1>
+<ul>
+  <li *ngFor="let item of items; let idx = index">
+    <div [ngClass]="{'big-text': setBigText(item)} " >{{item}}</div>
+  </li>
+</ul>
+<!--  пайпы -->
+<h1>пайпы</h1>
+<ul>
+  <li *ngFor="let date of dates; let idx = index">
+    {{date | date }}
+  </li>
+</ul>
+

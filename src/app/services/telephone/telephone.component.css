@@ -1,0 +1,14 @@
+.list{
+  list-style: none;
+}
+
+.list__item{
+  height: 150px;
+  width: 50%;
+  border: 1px solid black;
+  background-color: bisque;
+}
+
+.listItemActive{
+  background-color: aqua;
+}

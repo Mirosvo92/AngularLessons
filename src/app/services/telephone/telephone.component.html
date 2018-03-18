@@ -1,0 +1,5 @@
+<li [ngClass] = '{listItemActive:telephone.isSold}' class="list__item">
+  <div class="list__item-name">{{telephone.name}}</div>
+  <input (click)="triggerButtons('buy')" [disabled] = 'telephone.isSold' type="button" class="buy" value="купить" />
+  <input (click)="triggerButtons('return')" [disabled] = '!telephone.isSold' type="button" class="return" value="вернуть" />
+</li>

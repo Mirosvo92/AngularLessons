@@ -1,0 +1,23 @@
+<p>
+  {{ name | lowercase }}
+</p>
+<p>
+  {{ name | uppercase }}
+</p>
+<p>
+  {{ name | slice:0:5 | uppercase }}
+</p>
+<hr>
+<p>
+  {{ pi | number }}
+</p>
+<p>
+  {{ pi | number:'1.3-4' }}
+</p>
+<hr>
+<p>
+  {{ money | currency:'USD' }}
+</p>
+<p>
+  {{ money | appPow:3 }}
+</p>
