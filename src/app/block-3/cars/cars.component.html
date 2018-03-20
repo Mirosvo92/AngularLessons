@@ -12,12 +12,16 @@
 <p> {{ valueOfInput }} </p>
 <!-- второй способ -->
 <p>oneway binding ( вотрой способ )</p>
-<input type="text" #myinput (input)="keyUpDown2(myinput.value)" >
+<input type="text" #myinput (input)="keyUpDown2(myinput)" >
 <p> {{ valueOfInput2 }} </p>
 <!-- twoway  binding-->
 <h1>twoway binding</h1>
 <input type="text" [(ngModel)]="ngModelInputText" >
 <p> {{ ngModelInputText }} </p>
+<!-- получение данных через ViewChild -->
+<input type="text" #testView />
+<button (click)="testViewFun()">ViewChild</button>
+<input type="text" [value]="testValue" >
 <!-- Директива ngIf else-->
 <h1>Директива ngIf else</h1>
 <input type="text" [(ngModel)]="derectivesInput">

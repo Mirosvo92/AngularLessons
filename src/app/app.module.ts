@@ -17,6 +17,7 @@ import { TelephonesComponent } from './services/telephones/telephones.component'
 import { TelephoneComponent } from './services/telephone/telephone.component';
 import { AddtelephoneComponent } from './services/addtelephone/addtelephone.component';
 import {TelephonesService} from './services/telephones.servise';
+import { MyColorDirective } from './directives/my-color.directive';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {TelephonesService} from './services/telephones.servise';
     FilterPipePipe,
     TelephonesComponent,
     TelephoneComponent,
-    AddtelephoneComponent
+    AddtelephoneComponent,
+    MyColorDirective
   ],
   imports: [
     BrowserModule,

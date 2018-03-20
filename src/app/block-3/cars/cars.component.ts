@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-cars',
   templateUrl: './cars.component.html',
-  styleUrls: ['./cars.component.css']
+  styleUrls: ['./cars.component.css'],
 })
 export class CarsComponent implements OnInit {
   carList: [{ name: string, year: number }] = [
@@ -14,6 +14,7 @@ export class CarsComponent implements OnInit {
   valueOfInput = '';
   valueOfInput2 = '';
   ngModelInputText = '';
+  testValue = '';
   derectivesInput = '';
   items = ['Apple iPhone 7', 'Huawei Mate 9', 'Samsung Galaxy S7', 'Motorola Moto Z'];
   dates = [
@@ -22,10 +23,10 @@ export class CarsComponent implements OnInit {
     new Date(2005, 8, 9),
     new Date(2008, 12, 5)
   ];
+  @ViewChild('testView') testView: ElementRef;
   // one way binding (new) END
   constructor() { }
-  ngOnInit() {
-  }
+  ngOnInit() {}
   updateCarList(car: {name: string, year: number}) {
     this.carList.push(car);
   }
@@ -33,8 +34,11 @@ export class CarsComponent implements OnInit {
   keyUpDown(event: Event) {
     this.valueOfInput = (<HTMLInputElement>event.target).value;
   }
-  keyUpDown2(value) {
-    this.valueOfInput2 = value;
+  keyUpDown2(el: HTMLInputElement) {
+    this.valueOfInput2 = el.value;
+  }
+  testViewFun(){
+    this.testValue = this.testView.nativeElement.value;
   }
   setBigText(item: string) {
     return item.length > 14 ? true : false;

@@ -1,21 +1,23 @@
-import {Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ContentChild, ElementRef, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.css']
 })
-export class CarComponent implements OnInit {
+export class CarComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
   @Input() carItem: {name: string, year: number};
-  @ContentChild('contChild') contChild: ElementRef;
+  @ContentChild('contChild') contChildsd: ElementRef;
+  constructor() {
+  }
 
-  // ngAfterViewInit(){
-  //   console.log(this.contChild);
-  // }
+  ngAfterViewInit() {
+    console.log(this.contChildsd.nativeElement.innerHTML);
+  }
 
   ngOnInit() {
+
   }
 
 }
