@@ -1,0 +1,140 @@
+<form (ngSubmit)="submitForm(form)" #form="ngForm" >
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" ngModel name="email" required email >
+  </div>
+  <div class="form-group">
+    <label>Пароль</label>
+    <input type="text" ngModel name="pass" required >
+  </div>
+  <div class="form-group">
+    <label>Введите страну</label>
+    <select ngModel name="country" required>
+      <option value="ru">Россия</option>
+      <option value="by">Белорусия</option>
+      <option value="ua">Уераина</option>
+    </select>
+  </div>
+  <div class="radio" *ngFor="let ans of answers">
+    <input type="radio" [value]="ans.type" ngModel name="answer" >
+    <label>
+      {{ ans.text }}
+    </label>
+  </div>
+  <!-- отключаем кнопку -->
+  <button [disabled]="!form.valid" type="submit">Сохранить</button>
+</form>
+
+
+<h1>Второй способ</h1>
+<form (ngSubmit)="submitForm1(form)" #form1="ngForm" >
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" ngModel name="email" required email #mail1="ngModel" >
+    <p [ngStyle]="{ display: (mail1.invalid && mail1.touched) ? 'block' : 'none' }" >Введите корректный Email</p>
+  </div>
+  <div class="form-group">
+    <label>Пароль</label>
+    <input type="text" ngModel name="pass" required >
+  </div>
+  <div class="form-group">
+    <label>Введите страну</label>
+    <select ngModel name="country" required>
+      <option value="ru">Россия</option>
+      <option value="by">Белорусия</option>
+      <option value="ua">Уераина</option>
+    </select>
+  </div>
+  <div class="radio" *ngFor="let ans of answers">
+    <input type="radio" [value]="ans.type" ngModel name="answer" >
+    <label>
+      {{ ans.text }}
+    </label>
+  </div>
+  <button [disabled]="!form1.valid" type="submit">Сохранить</button>
+</form>
+
+<h1>Значение по умолчанию</h1>
+<form (ngSubmit)="submitForm2(form)" #form2="ngForm" >
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" ngModel name="email" required email #mail2="ngModel" >
+    <p [ngStyle]="{ display: (mail2.invalid && mail2.touched) ? 'block' : 'none' }" >Введите корректный Email</p>
+  </div>
+  <div class="form-group">
+    <label>Пароль</label>
+    <input type="text" ngModel name="pass" required >
+  </div>
+  <div class="form-group">
+    <label>Введите страну</label>
+    <select [ngModel]="defaultCountry" name="country" required>
+      <option value="ru">Россия</option>
+      <option value="by">Белорусия</option>
+      <option value="ua">Уераина</option>
+    </select>
+  </div>
+  <div class="radio" *ngFor="let ans of answers">
+    <input type="radio" [value]="ans.type" [ngModel]="defaultAnswer" name="answer" >
+    <label>
+      {{ ans.text }}
+    </label>
+  </div>
+  <button [disabled]="!form2.valid" type="submit">Сохранить</button>
+</form>
+
+
+<h1>Группировка форм</h1>
+<form (ngSubmit)="submitForm3(form)" #form3="ngForm" >
+
+  <div class="form-group__block" ngModelGroup="user" #userdd="ngModelGroup" >
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" ngModel name="email" required email #mail3="ngModel" >
+      <p [ngStyle]="{ display: (mail3.invalid && mail3.touched) ? 'block' : 'none' }" >Введите корректный Email</p>
+    </div>
+    <div class="form-group">
+      <label>Пароль</label>
+      <input type="text" ngModel name="pass" required >
+    </div>
+  </div>
+  <p [ngStyle]="{ display: (userdd.invalid && userdd.touched) ? 'block' : 'none' }" >Данные пользователя введены неверно</p>
+
+  <div class="form-group">
+    <label>Введите страну</label>
+    <select [ngModel]="defaultCountry" name="country" required>
+      <option value="ru">Россия</option>
+      <option value="by">Белорусия</option>
+      <option value="ua">Уераина</option>
+    </select>
+  </div>
+  <div class="radio" *ngFor="let ans of answers">
+    <input type="radio" [value]="ans.type" [ngModel]="defaultAnswer" name="answer" >
+    <label>
+      {{ ans.text }}
+    </label>
+  </div>
+  <button [disabled]="!form3.valid" type="submit">Сохранить</button>
+</form>
+
+<h1>Динамическое изминеие формы</h1>
+<form (ngSubmit)="submitFormComment()"  #formCallback="ngForm">
+  <div class="">Обратная связь</div>
+  <div class="form-group">
+    <label>Имя</label>
+    <input type="text" ngModel #userName="ngModel" required name="name" >
+    <p [ngStyle]="{ display: (userName.invalid && userName.touched) ? 'block' : 'none' }">Введите имя</p>
+  </div>
+  <div class="form-group">
+    <label>Комментарий</label>
+    <input type="text" ngModel #userTest="ngModel" required name="comment">
+    <p [ngStyle]="{ display: (userTest.invalid && userTest.touched) ? 'block' : 'none' }">Введите комментрарий</p>
+  </div>
+  <button type="button" (click)="addSomeComment()">Добавить случайнеый комментарий</button>
+  <button  type="submit">Отправить</button>
+</form>
+<div *ngIf="isSubmit">
+  <pre>
+    {{ dataForm|json }}
+  </pre>
+</div>
+

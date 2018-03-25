@@ -7,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivesComponent implements OnInit {
 
-  title = 'Создание своей директивы';
+  title = 'Создание своей директивы'
+  myNumbers = [1, 2, 3, 4];
+  current = 1;
   constructor() { }
 
   ngOnInit() {
+  }
+  onClick(num){
+    this.current = num;
   }
 
 }

@@ -18,6 +18,7 @@ import { TelephoneComponent } from './services/telephone/telephone.component';
 import { AddtelephoneComponent } from './services/addtelephone/addtelephone.component';
 import {TelephonesService} from './services/telephones.servise';
 import { MyColorDirective } from './directives/my-color.directive';
+import { FormsComponent } from './forms/forms/forms.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MyColorDirective } from './directives/my-color.directive';
     TelephonesComponent,
     TelephoneComponent,
     AddtelephoneComponent,
-    MyColorDirective
+    MyColorDirective,
+    FormsComponent
   ],
   imports: [
     BrowserModule,

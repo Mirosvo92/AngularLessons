@@ -2,3 +2,19 @@
 <p appBackground>
   {{ title }}
 </p>
+
+<p appMyColor [hoverBackGroundColor] [defaultBackGroundColor]="'grey'" >
+  еще директива
+</p>
+
+<p>Директива ngSwitch</p>
+
+<ul>
+  <li *ngFor="let num of myNumbers" (click)="onClick(num)"  >{{ num }}</li>
+</ul>
+<div [ngSwitch]='current' >
+  <p *ngSwitchCase="1">1</p>
+  <p *ngSwitchCase="2">2</p>
+  <p *ngSwitchCase="3">3</p>
+  <p *ngSwitchDefault>default</p>
+</div>

@@ -10,7 +10,9 @@ export class FilterPipePipe implements PipeTransform {
       return carList;
     }
 
-    return carList.filter((car) => (car[description] + car.name).replace(/\s+/g,'').toLowerCase().indexOf(searchStr.toLowerCase()) !== -1);
+    // console.log(carList.filter((car) => (car[description] + car.name).replace(/\s+/g,'').toLowerCase().indexOf(searchStr.toLowerCase()) !== -1));
+
+    return carList.filter((car) => (car.description + car.name).replace(/\s+/g,'').toLowerCase().indexOf(searchStr.toLowerCase()) !== -1);
   }
 
 }

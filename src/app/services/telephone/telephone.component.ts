@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ConsoleService} from '../console.service'
+import {ConsoleService} from '../console.service';
 
 @Component({
   selector: 'app-telephone',
@@ -8,16 +8,14 @@ import {ConsoleService} from '../console.service'
   providers: [ConsoleService]
 })
 export class TelephoneComponent implements OnInit {
-
   @Input() telephone;
+  constructor(private consoleService: ConsoleService) { }
+  // method
   triggerButtons(type: string) {
     this.telephone.isSold = type === 'buy' ? true : false;
     // const servise = new ConsoleService();it is right variant
     this.consoleService.log(`${this.telephone.name} status ${type}`);
   }
-
-  constructor(private consoleService: ConsoleService) { }
-
   ngOnInit() {
   }
 

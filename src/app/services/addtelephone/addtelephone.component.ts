@@ -7,7 +7,7 @@ import {TelephonesService} from '../telephones.servise';
   styleUrls: ['./addtelephone.component.css']
 })
 export class AddtelephoneComponent implements OnInit {
-  nameTelephone;
+  nameTelephone: string;
   // @Output() onAddTelephone = new EventEmitter<{name: string}>();
 
   constructor(private service: TelephonesService) { }
