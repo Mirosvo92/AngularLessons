@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {BackendApiService} from '../../backend-api.service';
 
 @Component({
   selector: 'app-cars',
@@ -25,8 +26,10 @@ export class CarsComponent implements OnInit {
   ];
   @ViewChild('testView') testView: ElementRef;
   // one way binding (new) END
-  constructor() { }
-  ngOnInit() {}
+  constructor( private controlPage: BackendApiService) { }
+  ngOnInit() {
+    this.controlPage.init();
+  }
   updateCarList(car: {name: string, year: number}) {
     this.carList.push(car);
   }

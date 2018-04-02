@@ -1,2 +1,2 @@
-<div>{{ carItem.name }} год {{ carItem.year }} </div>
+<div><a [routerLink]="['/cars', carItem.year, carItem.name]">{{ carItem.name }} год {{ carItem.year }}</a></div>
 <ng-content></ng-content>

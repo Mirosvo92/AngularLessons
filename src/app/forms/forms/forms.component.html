@@ -137,4 +137,114 @@
     {{ dataForm|json }}
   </pre>
 </div>
+//////////////////////////////////////////////////////////////////////////////////////////
+<h1>Реактивный поход</h1>
+<form (ngSubmit)="onSubmitFormR()" [formGroup]="formR" >
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text"  formControlName="emailR" >
+  </div>
+  <div class="form-group">
+    <label>Пароль</label>
+    <input type="text" formControlName="passR">
+  </div>
+  <div class="form-group">
+    <label>Введите страну</label>
+    <select  formControlName="countryR">
+      <option value="ru">Россия</option>
+      <option value="by">Белорусия</option>
+      <option value="ua">Уераина</option>
+    </select>
+  </div>
+  <div class="radio" *ngFor="let ans of answers">
+    <input type="radio" [value]="ans.type" formControlName="answerR" >
+    <label>
+      {{ ans.text }}
+    </label>
+  </div>
+  <!-- отключаем кнопку -->
+  <button type="submit">Сохранить</button>
+</form>
 
+<h1>Валидация Реактивный поход</h1>
+<form (ngSubmit)="onSubmitFormR()" [formGroup]="formR2" >
+  <div class="" formGroupName="user">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text"  formControlName="emailR" >
+    </div>
+    <div class="form-group">
+      <label>Пароль</label>
+      <input type="text" formControlName="passR">
+      <p *ngIf="formR2.get('user.passR').invalid && formR2.get('user.emailR').touched" >Пароль пустрой</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Введите страну</label>
+    <select  formControlName="countryR">
+      <option value="ru">Россия</option>
+      <option value="by">Белорусия</option>
+      <option value="ua">Уераина</option>
+    </select>
+  </div>
+  <div class="radio" *ngFor="let ans of answers">
+    <input type="radio" [value]="ans.type" formControlName="answerR" >
+    <label>
+      {{ ans.text }}
+    </label>
+  </div>
+  <!-- отключаем кнопку -->
+  <button [disabled]="!formR2.valid" type="submit">Сохранить</button>
+</form>
+
+<h1>Создание валидатора</h1>
+<form (ngSubmit)="onSubmitFormR()" [formGroup]="formR3" >
+  <div class="" formGroupName="user">
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text"  formControlName="emailR" >
+    </div>
+    <div class="form-group">
+      <label>Пароль</label>
+      <input type="text" formControlName="passR">
+      <p *ngIf="formR3.get('user.passR').invalid && formR3.get('user.emailR').touched" >
+        <span *ngIf="formR3.get('user.passR').errors['required']">Пароль не должен быть пустым</span>
+        <span *ngIf="formR3.get('user.passR').errors.lengthError">Пароль не должен содержать меньше 4 символов</span>
+        <span *ngIf="">Пароль не должен быть меньше 4 символов</span>
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Введите страну</label>
+    <select  formControlName="countryR">
+      <option value="ru">Россия</option>
+      <option value="by">Белорусия</option>
+      <option value="ua">Уераина</option>
+    </select>
+  </div>
+  <div class="radio" *ngFor="let ans of answers">
+    <input type="radio" [value]="ans.type" formControlName="answerR" >
+    <label>
+      {{ ans.text }}
+    </label>
+  </div>
+  <!-- отключаем кнопку -->
+  <button  type="submit">Сохранить</button>
+</form>
+
+
+
+
+<h1>Создание асинхронного валидатора</h1>
+<form (ngSubmit)="onSubmitFormR4()" [formGroup]="formR4" >
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" formControlName="emailR">
+    <p *ngIf="formR4.get('emailR').touched" >
+      <span *ngIf="formR4.get('emailR').errors['EmailUseddfsf']">Email уже существует</span>
+    </p>
+  </div>
+  <input type="text" formControlName="passR">
+  <!-- отключаем кнопку -->
+  <button type="submit">Сохранить</button>
+</form>

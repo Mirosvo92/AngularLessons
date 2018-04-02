@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CarsComponent } from './block-3/cars/cars.component';
 import { CarComponent } from './block-3/car/car.component';
 import { AddcarComponent } from './block-3/addcar/addcar.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DirectivesComponent } from './block-4/directives-lesson/directives.component';
 import {BackgroundDirective} from './directives/background.directive';
 import { PipComponent } from './pipes/pip/pip.component';
@@ -19,6 +19,13 @@ import { AddtelephoneComponent } from './services/addtelephone/addtelephone.comp
 import {TelephonesService} from './services/telephones.servise';
 import { MyColorDirective } from './directives/my-color.directive';
 import { FormsComponent } from './forms/forms/forms.component';
+import { MyServerComponent } from './my-server/my-server.component';
+import {HttpClientModule} from '@angular/common/http';
+import {MyServerService} from './my-server/myServer-service';
+import {AppRoutingModule} from './app-routing-module';
+import { CarPageComponent } from './car-page/car-page.component';
+import { BackendApiService } from './backend-api.service';
+
 
 
 @NgModule({
@@ -37,13 +44,18 @@ import { FormsComponent } from './forms/forms/forms.component';
     TelephoneComponent,
     AddtelephoneComponent,
     MyColorDirective,
-    FormsComponent
+    FormsComponent,
+    MyServerComponent,
+    CarPageComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [TelephonesService],
+  providers: [TelephonesService, MyServerService, BackendApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

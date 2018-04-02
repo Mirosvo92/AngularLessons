@@ -1,0 +1,16 @@
+<h1>Настройка сервера</h1>
+<h2>{{ title }}</h2>
+<input type="text" [(ngModel)]="carName" >
+<button (click)="loadCars()" >Загрузить машину</button>
+<button (click)="addCar()" >Добавить машину</button>
+<ul>
+  <li *ngFor="let carrr of cars">
+    <div>
+     <span [ngStyle]="{'color': carrr.color}">ID:{{ carrr.id }}</span>
+      Color:{{ carrr.color }}
+      Name:{{ carrr.name }}
+    </div>
+    <button (click)="changeColor(carrr)">Изменить цвет</button>
+    <button (click)="delCar(carrr)">Удалить машину</button>
+  </li>
+</ul>

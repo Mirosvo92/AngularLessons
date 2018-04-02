@@ -3,11 +3,29 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <ul><li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/">Главная</a></li>
+    <li routerLinkActive="active"><a [routerLink]="'/cars'">cars</a></li>
+    <li routerLinkActive="active"><a [routerLink]="'/derectives'">derectives</a></li>
+    <li routerLinkActive="active"><a [routerLink]="'/pipe'">pipes</a></li>
+    <li routerLinkActive="active"><a [routerLink]="'/telephones'">telephones</a></li>
+    <li routerLinkActive="active"><a [routerLink]="'/form'">form</a></li>
+    <li routerLinkActive="active"><a [routerLink]="'/server'">server</a></li>
+  </ul>
 </div>
-<app-cars></app-cars>
-<app-directives></app-directives>
-<app-pip></app-pip>
-<app-pipe-filter></app-pipe-filter>
-<app-telephones></app-telephones>
-<app-forms></app-forms>
+<button (click)="openCarPage()" >Открыть страницу машин</button>
+<hr>
+<hr>
+<!--<app-cars></app-cars>-->
+<!--<app-directives></app-directives>-->
+<!--<app-pip></app-pip>-->
+<!--<app-pipe-filter></app-pipe-filter>-->
+<!--<app-telephones></app-telephones>-->
+<!--<app-forms></app-forms>-->
+<!--<app-my-server></app-my-server>-->
 
+<router-outlet></router-outlet>
+
+<div class="buttons">
+  <span [class.disabled]="activrPrevPage" (click)="prevPage()">prev page</span>
+  <span (click)="nexPage()">next page</span>
+</div>
