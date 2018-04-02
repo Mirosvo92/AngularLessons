@@ -1,0 +1,22 @@
+{
+  "title": {
+    "text": "Генератор машин"
+  },
+  "cars": [
+    {
+      "name": "1",
+      "color": "silver",
+      "id": 1
+    },
+    {
+      "name": "2",
+      "color": "blue",
+      "id": 2
+    },
+    {
+      "name": "5465",
+      "color": "silver",
+      "id": 3
+    }
+  ]
+}
