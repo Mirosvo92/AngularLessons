@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Component, OnInit, Input} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BackendApiService} from './backend-api.service';
 
 @Component({
@@ -9,13 +9,15 @@ import {BackendApiService} from './backend-api.service';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  activrPrevPage = false;
+  activePrevPage: boolean;
 
 
   constructor(private router: Router, private route: ActivatedRoute, private controlPage: BackendApiService) { }
 
   ngOnInit() {
+    console.log('this app');
     this.controlPage.init();
+    this.activePrevPage = this.controlPage.activePrevPage;
   }
 
   openCarPage() {
@@ -23,13 +25,14 @@ export class AppComponent implements OnInit {
   }
 
   prevPage() {
-
+    this.controlPage.prevPage();
+    this.activePrevPage = this.controlPage.activePrevPage;
   }
 
-  nexPage() {
+  nextPage() {
     this.controlPage.nextPage();
+    this.activePrevPage = this.controlPage.activePrevPage;
   }
-
 
 
 }

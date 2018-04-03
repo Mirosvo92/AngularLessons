@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {AppComponent} from '../app.component';
 
 
 
@@ -12,6 +13,7 @@ export class CarPageComponent implements OnInit {
 
   id: string;
   name: string;
+  activePrevPage = false;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
