@@ -25,6 +25,7 @@ import {MyServerService} from './my-server/myServer-service';
 import {AppRoutingModule} from './app-routing-module';
 import { CarPageComponent } from './car-page/car-page.component';
 import { BackendApiService } from './backend-api.service';
+import { ArrowsComponent } from './arrows/arrows.component';
 
 
 
@@ -46,7 +47,8 @@ import { BackendApiService } from './backend-api.service';
     MyColorDirective,
     FormsComponent,
     MyServerComponent,
-    CarPageComponent
+    CarPageComponent,
+    ArrowsComponent
   ],
   imports: [
     BrowserModule,

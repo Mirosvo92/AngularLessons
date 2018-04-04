@@ -1,0 +1,11 @@
+<div class="buttons">
+  <button [disabled]="!controlPage.activePrevPage" (click)="prevPage()">prev page</button>
+  <button (click)="nextPage()">next page</button>
+  <p *ngIf="controlPage.activePrevPage">
+    Привет мир
+  </p>
+  <p *ngIf="!controlPage.activePrevPage">
+    Пока мир
+  </p>
+</div>
+

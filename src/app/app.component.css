@@ -6,17 +6,3 @@
 .active a{
   color: red;
 }
-
-.buttons{
-  display: flex;
-  justify-content: space-between;
-  padding: 0 25px;
-}
-
-.buttons span:hover{
-  cursor: pointer;
-}
-
-.disabled{
-  visibility: hidden;
-}

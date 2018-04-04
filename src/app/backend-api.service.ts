@@ -4,20 +4,25 @@ import {ActivatedRoute, Router} from '@angular/router';
 function setIndexNextPage() {
   // get this page url
   this.namePage = this.router.url;
-  console.log('url ' + this.namePage);
   // next page index
   this.indexPage = this.pages.indexOf(this.namePage) + 1;
   // if last page
   if (this.indexPage === this.pages.length) {
     this.indexPage = 0;
   }
-  if (this.indexPage === 0) {
-    this.activePrevPage = true;
-    console.log('asd');
-  } else {
+
+}
+
+function isActivePrevButton() {
+  if (this.indexPage === 1) {
+    console.log('isActivePrevButton NUMBER' + this.indexPage + 'NOW');
     this.activePrevPage = false;
+  } else {
+    this.activePrevPage = true;
   }
 }
+
+
 
 function setIndexPrevPage() {
   // get this page url
@@ -30,13 +35,14 @@ function setIndexPrevPage() {
   }
 }
 
+
 @Injectable()
 export class BackendApiService {
 
   pages = [];
   namePage: string;
   indexPage: number;
-  activePrevPage: boolean;
+  activePrevPage = true;
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.router.config.forEach((item) => {
@@ -50,7 +56,10 @@ export class BackendApiService {
   init() {
     setTimeout(() => {
       setIndexNextPage.call(this);
-    }, 0);
+    }, 10);
+    setTimeout(() => {
+      this.activePrevPage = false;
+    }, 5000);
   }
 
   prevPage() {
